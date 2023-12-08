@@ -1,0 +1,60 @@
+const cells = document.querySelectorAll(".cell");
+const statusText = document.querySelector("#statusText");
+const restartBtn = document.querySelector("#restartBtn");
+
+const winConditions = [
+  [0, 1, 2],
+  [3, 5, 6],
+  [7, 8, 9],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6],
+];
+
+let options = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+
+let running = false;
+let currentPlayer = "X";
+
+initializeGame();
+
+function initializeGame() {
+  cells.forEach((cell) => cell.addEventListener("click", cellClicked));
+  restartBtn.addEventListener("click", restartGame);
+  statusText.textContent = `${currentPlayer}'s turn`;
+  running = "true"
+}
+
+function cellClicked() {
+  const cellindex = this.getAttribute("cellindex");
+
+  if (options[cellindex] != "" || !running) {
+    return;
+  }
+
+  updateCell(this, index);
+  checkWinner();
+}
+
+function updateCell(cell, index) {
+     options[index] = currentPlayer;
+     cell.textContent = currentPlayer;
+}
+
+function changePlayer() {
+     currentPlayer = (currentPlayer == "X") ? "O" : "X";
+     statusText.textContent = `${currentPlayer}'s turn`;
+}
+
+function checkWinner() {
+     let roundWon = "false";
+     
+     for (let i = 0; i < winConditions.length; i++) {
+          
+          const condition =  winConditions[i];
+          let cellA = options[condition[0]];
+          let cellB = options[condition[1]];
+          let cellC= options[condition[2]];
+     }
+}
+function restartGame(params) {}
