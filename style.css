@@ -1,27 +1,71 @@
-*{
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.cell{
-     width: 75px;
-     height: 75px;
-     border: 2px solid;
-     box-shadow: 0 0 0 2px;
-     line-height: 75px;
-     font-size: 50px;
-     border: solid;
-     cursor: pointer;
+html, body {
+    height: 100%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#gameContainer{
-     font-family: "Permanent Marker", cursive;
-     text-align: center;
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid;
+    box-shadow: 0 0 0 2px;
+    line-height: 75px;
+    font-size: 50px;
+    border: solid;
+    cursor: pointer;
 }
-#cellContainer{
-     display: grid;
-     grid-template-columns: repeat(3,auto);
-     width: 225px;
-     margin: auto;
+
+h1, h2 {
+    font-size: 30px;
+    margin: 10px 0 10px 10px;
+}
+
+#gameContainer {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    font-family: "Permanent Marker", cursive;
+    text-align: center;
+}
+
+#cellContainer {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+button {
+    margin: 20px 0 0 0;
+    background-color: #eb9ce3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Media Query for iPhone 13 */
+@media (min-width: 414px) and (max-width: 428px) {
+    #gameContainer {
+        max-width: 95%;
+    }
+
+    #cellContainer {
+        max-width: 90%;
+    }
 }
